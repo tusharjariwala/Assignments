@@ -1,0 +1,30 @@
+<div class="row" style="height: 600px; font-size: medium;text-align: center;" >
+<p style="font-style:italic;font-size: 250%;">Show Employe</p>
+<table class="table table-bordered" id="a1">
+    <thead class="thead-dark">
+       
+        <tr>
+
+            <th>EmployeId</th>
+            <th>EmployeName</th>
+            <th>DepartmentName</th>
+            <th>JoiningDate</th>
+            <th>Designation</th>
+            <th>Quliafiction</th>
+            </tr>
+
+            <tr *ngFor="let emp of employeList;let no=index;"> 
+                <td>{{no+1}}</td>
+               
+                <td>{{emp.emp_name}}</td>
+                <td>{{emp.department.dept_name}}</td>
+               <td>{{emp.date_joining}}</td>
+                <td>{{emp.designation}}</td>
+                <td>{{emp.qulifiction}}</td>
+
+                <a [routerLink]="['/employe-ed',emp.emp_id]">Edit</a>
+            <a (click)="deleteemploye(emp.emp_id)">/Delete</a>
+            </tr>
+        </thead>
+    </table>
+</div>

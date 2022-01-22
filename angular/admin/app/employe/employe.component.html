@@ -1,0 +1,50 @@
+<div class="row" style="height: 600px; font-size: medium;text-align: center;" >
+    <div class="col-xs-12" >
+        <p style="font-style:italic;font-size: 250%;">ADD Employe</p>
+        <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+         
+
+            <div class="row">
+                 
+                <br><br><br><br>
+                <div class="col-sm-4 form-group">
+                    <label for="name">EmployeName</label>
+                    <input type="text" id="name" class="form-control" name="name" [(ngModel)]="this.employeData.emp_name" required placeholder="enter the EmployeName">
+                </div>
+                <br><br><br><br>
+                <div class="col-sm-4 form-group">
+                    <label for="name">DepartmentName</label>
+                   <select class="form-control" name="dept_id" #dept_id="ngModel" [(ngModel)]="this.employeData.depart_id" [compareWith]="compareFn"> 
+                       <option value="0">select department</option>
+                      <option *ngFor="let dept of departmentList;" value="{{dept.dept_id}}">{{dept.dept_name}}</option>
+                   </select>
+                </div>
+                <br><br><br><br>
+                <div class="col-sm-4 form-group">
+                    <label for="name">Joining Date</label>
+                    <input type="text" id="date" class="form-control" name="date" [(ngModel)]="this.employeData.date_joining" required placeholder="enter the JoiningDate"> 
+                </div>
+                <br><br><br><br>
+                <div class="col-sm-4 form-group">
+                    <label for="name">Designation </label>
+                    <input type="text" id="designation" class="form-control" name="Designation" [(ngModel)]="this.employeData.designation" required placeholder="enter the Designation">
+                </div>
+                <br><br><br><br>
+                <div class="col-sm-4 form-group">
+                    <label for="name">Quliafiction </label>
+                    <input type="text" id="quliafiction" class="form-control" name="quliafiction" [(ngModel)]="this.employeData.qulifiction" required placeholder="enter the Quliafiction">
+                </div> 
+                <br><br><br><br>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <button class="btn btn-success" type="submit" [disabled]="!f.valid">Submit</button>
+                        <button class="btn btn-primary" (click)="onClear()">Clear</button>
+                    </div>
+
+
+                </div>
+            </div>
+          
+            </form>
+</div>
+</div>

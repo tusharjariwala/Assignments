@@ -1,0 +1,27 @@
+<div class="row" style="height: 600px; font-size: medium;text-align: center;" >
+    <p style="font-style:italic;font-size: 250%;">Show Department</p>
+    <table class="table table-bordered" id="a1">
+        <thead class="thead-dark">
+                <tr>
+                <th>DepartmentId</th>
+                <th>DepartmenteName</th>
+                <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let dept of departmnetList;let no=index;"> 
+                    
+                    <td>{{no+1}}</td>
+                    <td>{{dept.dept_name}}</td>
+<!--                   
+                    <td><button class="btn btn-success" routerlink="">Edit</button>
+                        <button class="btn btn-danger">Delete</button>
+                    </td>
+         -->
+         <a [routerLink]="['/department-ed',dept.dept_id]">Edit</a>
+         <a (click)="deleteDepartment(dept.dept_id)">/Delete</a>
+         
+                    </tr>
+            </tbody>
+        </table>
+    </div>

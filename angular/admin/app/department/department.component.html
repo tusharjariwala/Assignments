@@ -1,0 +1,29 @@
+
+<div class="row" style="height: 600px; font-size: medium;text-align: center;" >
+    <div class="col-xs-12">
+        <p style="font-style:italic;font-size: 250%;">ADD Department</p>
+        <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+           
+            <div class="row">
+                 
+              
+                <div class="col-sm-5 form-group">
+                    <label for="name">DepartmentName</label>
+                    <input type="text" id="departname" class="form-control" 
+                    name="departname"#deptName="ngModel" [(ngModel)]="this.departmentData.dept_name" required placeholder="ente the DepartmentName">
+                </div>
+               
+      
+                <div class="row">
+                    <div class="col-xs-12">
+                        <button class="btn btn-success" type="submit" [disabled]="!f.valid">Submit</button>
+                        <button class="btn btn-primary" (click)="onClear()">Clear</button>
+                    </div>
+
+
+                </div>
+            </div>
+      
+            </form>
+</div>
+</div>
