@@ -1,0 +1,25 @@
+
+
+<ng-sidebar-container>
+  <ng-sidebar [opened]="opened">
+    <p>Sidebar Contents</p>
+    <button (click)="toggleSidebar()">Close SideBar</button>
+    <ul class="menu">
+      <li><a routerLink="/" (click)="toggleSidebar()">Dashboard</a></li>
+      <li><a routerLink="/employe" (click)="toggleSidebar()">Employe</a></li>
+      <li><a routerLink="/department" (click)="toggleSidebar()">Department</a></li>
+      
+      </ul>
+  </ng-sidebar>
+  <div ng-sidebar-content>
+    <button (click)="toggleSidebar()">
+      Open Sidebar
+
+      </button>
+      <router-outlet>
+
+      </router-outlet>
+      </div>
+    
+</ng-sidebar-container>
+
