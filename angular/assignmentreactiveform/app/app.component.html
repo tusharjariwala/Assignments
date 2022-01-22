@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+        <div formGroupName="userData">
+        <div class="form-group">
+          <label for="projectname">ProjectName</label>
+          <input type="text" id="projectname" class="form-control"  formControlName="projectname" >
+
+         <span *ngIf="!signupForm.get('userData.projectname')?.valid && signupForm.get('userData.projectname')?.touched" class="help-block" >this field is required!</span>
+        </div>
+        <div class="form-group" >
+          <label for="email">email</label>
+          <input type="text" id="email" class="form-control" formControlName="email">
+          <span *ngIf="!signupForm.get('userData.email')?.valid && signupForm.get('userData.email')?.touched" class="help-block">Please enter a Valid Email!</span>
+        </div>
+        </div>
+      
+       
+          <div formArrayName="status">
+            <label for="status">select status</label>
+            <select id="status" class="form-control" formControlName="defaultsub" name=""> 
+              <option value="Stable">Stable</option>
+              <option value="Critical">Critical</option>
+              <option value="Finished">Finished</option>
+              
+  
+            </select>
+          </div>
+        <span *ngIf="!signupForm.valid && signupForm.touched" class="help-block">Please enter a Valid data!</span>
+        <button class="btn btn-primary" type="submit">Submit</button>
+        </form>
+      </div>
+  </div>
+  <hr>
+  <div class="row" *ngIf="submitted ">
+<div class="col-xs-12">
+  <h3>Your Data</h3>
+  <p>ProjectName:{{user.projectname}}</p>
+  <p>Mail:{{user.email}}</p>
+ 
+  <p>status:{{user.status}}</p>
+  
+  
+</div>
+  </div>
+</div>
